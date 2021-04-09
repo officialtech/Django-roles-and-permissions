@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Signup {% endblock title %}
+{% block content %}
+
+
+
+
+    <section class="section-border border-primary">
+      <div class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+          <div class="col-12 col-md-5 col-lg-4 py-8 py-md-11">
+            
+            <!-- Heading -->
+            <h1 class="mb-0 font-weight-bold text-center">
+              Sign up
+            </h1>
+
+            <!-- Text -->
+            <p class="mb-6 text-center text-muted">
+              Let's catch it, just few more steps
+            </p>
+
+            <!-- Form -->
+            <form class="mb-6" method="post">
+                {% csrf_token %}
+
+              <!-- Errors -->
+              <div class="form-group">
+                {{ form.non_field_errors }}
+              </div>
+
+              <!-- Username -->
+              <div class="form-group">
+                {{ form.username.errors }}
+                <label for="id_username">
+                  Username
+                </label>
+                <input  type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" class="form-control" title="Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only." placeholder="Username">
+              </div>
+
+              <!-- Email -->
+              <div class="form-group mb-3">
+                {{ form.email.errors }}
+                <label for="id_email">
+                  Email
+                </label>
+                <input  type="email" name="email" maxlength="254" id="id_email" class="form-control" placeholder="Email">
+                <br>
+              </div>
+
+              <!-- Password1 -->
+              <div class="form-group mb-3">
+                {{ form.password1.errors }}
+                <label for="id_password1">
+                  Password
+                </label>
+                <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1" class="form-control" 
+                title="   1.Your password can’t be too similar to your other personal information. --- 2. Your password must contain at least 8 characters. --- 3. Your password can’t be a commonly used password. --- 4. Your password can’t be entirely numeric." 
+                placeholder="Enter your password">
+              </div>
+
+
+              <!-- Password2 -->
+              <div class="form-group mb-3">
+                {{ form.password2.errors }}
+                <label for="id_password2">
+                  Password Confirmation
+                </label>
+                <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2" class="form-control" title="Enter the same password as before, for verification." placeholder="Repeat your password">
+              </div>
+
+
+              <!-- Submit -->
+              <button class="btn btn-block btn-primary" type="submit">
+                Sign up
+              </button>
+
+            </form>
+
+            <!-- Text -->
+            <p class="mb-0 font-size-sm text-center text-muted">
+              Already have an account <a href="{% url 'login' %}">Log In</a>.
+            </p>
+
+          </div>
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </section>
+
+{% endblock content %}

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock title %}
+
+
+{% block content %}
+
+
+
+
+
+    <section class="section-border border-primary">
+      <div class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+          <div class="col-12 col-md-5 col-lg-4 py-8 py-md-11">
+            
+            <!-- Heading -->
+            <h1 class="mb-0 font-weight-bold text-center">
+              Sign in
+            </h1>
+
+            <!-- Text -->
+            <p class="mb-6 text-center text-muted">
+              Let's get into it, just few steps
+            </p>
+
+            <!-- Form -->
+            <form class="mb-6" method="post">
+                {% csrf_token %}
+              <!-- Email -->
+              {{ form.non_field_errors }}
+              <div class="form-group">
+                {% if form.email.errors %}
+                  {{ form.email.errors }}
+                {% else %}
+                  {{ form.username.errors }}
+                {% endif %}
+                {% if form.username %}
+                <label for="id_username">
+                  Username
+                </label>
+                <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" class="form-control" placeholder="Username" title="Username is case sensetive." required>
+                {% else %}
+                <label for="id_email">
+                  Email
+                </label>
+                <input type="email" name="email" autofocus="" autocapitalize="none" autocomplete="email" maxlength="150" required="" id="id_email" class="form-control" placeholder="Email" required>
+                {% endif %}
+              </div>
+
+              <!-- Password -->
+              <div class="form-group mb-5">
+                {{ form.password.errors }}
+                <label for="id_password">
+                  Password
+                </label>
+                <input  type="password" name="password" autocomplete="current-password" required="" id="id_password" class="form-control" placeholder="Password" required>
+              </div>
+
+              <!-- Submit -->
+              <button class="btn btn-block btn-primary" type="submit">
+                Sign in
+              </button>
+
+            </form>
+
+            <!-- Text -->
+            <p class="mb-0 font-size-sm text-center text-muted">
+              Don't have an account yet <a href="{% url 'signup' %}">Sign up</a>.
+            </p>
+
+          </div>
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </section>
+
+
+
+
+
+
+
+{% endblock content %}

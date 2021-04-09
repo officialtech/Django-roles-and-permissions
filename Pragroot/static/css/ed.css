@@ -1,0 +1,52 @@
+.mb-6, .my-6 {
+    margin-bottom: 2rem !important;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.6em + 1.625rem + 2px);
+    padding: .8125rem 1.25rem;
+    font-size: 1.0625rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #161c2d;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #f1f4f8;
+    border-radius: .375rem;
+    box-shadow: none;
+    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn {
+    padding: .8125rem 1.25rem !important;
+    font-size: 1.0625rem !important;
+    line-height: 1.6 !important;
+    border-radius: .375rem !important;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.errorlist.nonfield, .errorlist {
+    list-style: none;
+    text-align: center;
+    color: #f04a4a;
+}
+
+.pt-md-11, .py-md-11 {
+    padding-top: 6rem !important;
+}
